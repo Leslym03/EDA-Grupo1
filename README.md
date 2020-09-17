@@ -2,9 +2,9 @@
 
 ## Integrantes
 ```
-- Ccari Quispe, Jose
-- Flores Herrera, Jefferson
-- Gonza Condori, Gabriel
-- Mita Yagua, Lesly
-- Pinto Medina, Brian
+* Ccari Quispe, Jose
+* Flores Herrera, Jefferson
+* Gonza Condori, Gabriel
+* Mita Yagua, Lesly
+* Pinto Medina, Brian
 ```
