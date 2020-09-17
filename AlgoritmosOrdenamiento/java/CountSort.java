@@ -1,35 +1,42 @@
-class CountSort { 
-    void sort(char arr[]) { 
-        int n = arr.length; 
-        char output[] = new char[n]; 
-        int count[] = new int[256]; 
-
-        for (int i = 0; i < 256; ++i) 
-            count[i] = 0; 
-
-        for (int i = 0; i < n; ++i) 
-            ++count[arr[i]]; 
-
-        for (int i = 1; i <= 255; ++i) 
-            count[i] += count[i - 1]; 
+import java.util.*; 
   
-        for (int i = n - 1; i >= 0; i--) { 
-            output[count[arr[i]] - 1] = arr[i]; 
-            --count[arr[i]]; 
+class GFG { 
+  
+    static void countSort(int[] arr) { 
+        int max = Arrays.stream(arr).max().getAsInt(); 
+        int min = Arrays.stream(arr).min().getAsInt(); 
+        int range = max - min + 1; 
+        int count[] = new int[range]; 
+        int output[] = new int[arr.length]; 
+        for (int i = 0; i < arr.length; i++) { 
+            count[arr[i] - min]++; 
         } 
- 
-        for (int i = 0; i < n; ++i) 
+  
+        for (int i = 1; i < count.length; i++) { 
+            count[i] += count[i - 1]; 
+        } 
+  
+        for (int i = arr.length - 1; i >= 0; i--) { 
+            output[count[arr[i] - min] - 1] = arr[i]; 
+            count[arr[i] - min]--; 
+        } 
+  
+        for (int i = 0; i < arr.length; i++) { 
             arr[i] = output[i]; 
+        } 
+    } 
+  
+    static void printArray(int[] arr) { 
+        for (int i = 0; i < arr.length; i++) { 
+            System.out.print(arr[i] + " "); 
+        } 
+        System.out.println(""); 
     } 
 
-    public static void main(String args[]) 
-    { 
-        CountSort ob = new CountSort(); 
-        char arr[] = { 'a', 'e', 'e', 'z', 's', 'h', 'o', 
-                       'r', 'r', 'e', 's', 'l', 's' }; 
-  
-        ob.sort(arr); 
-        for (int i = 0; i < arr.length; ++i) 
-            System.out.print(arr[i]); 
+    public static void main(String[] args) { 
+        int[] arr = { -5, -10, 0, -3, 8, 5, -1, 10 }; 
+        countSort(arr); 
+        printArray(arr); 
     } 
 } 
+  
