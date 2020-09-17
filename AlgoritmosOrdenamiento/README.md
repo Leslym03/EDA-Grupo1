@@ -1,10 +1,11 @@
-# Estructuras de Datos Avanzados - Universidad Nacional de San Agustin - Ciencia de la Computación
-## ALGORITMOS DE ORDENACIÓN
-## INTEGRANTES
+# Algoritmos de Ordenacion
+Implementacion de los siguientes algoritmos en C++, Java y Python
 ```
-Ccari Quispe, Jose
-Flores Herrera, Jefferson
-Gonza Condori, Gabriel
-Mita Yagua, Lesly
-Pinto Medina, Brian
+- Bubble sort
+- Counting sort
+- Heap sort
+- Insertion sort
+- Merge sort
+- Quick sort
+- Selection sort
 ```
