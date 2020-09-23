@@ -4,10 +4,13 @@ using namespace std;
 // PROTOTIPOS DE LAS FUNCIONES
 
 int Lenght( char * );
+
 template < typename Type >
 void Imprimir( Type *, int );
+
 template < typename Type >
 void Swap( Type &a, Type &b );
+
 template < typename Type >
 void BubbleSort( Type *arr, int n );
 

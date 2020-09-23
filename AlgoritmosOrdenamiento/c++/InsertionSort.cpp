@@ -4,8 +4,10 @@ using namespace std;
 // PROTOTIPOS DE LAS FUNCIONES
 
 int Lenght( char * );
+
 template < typename Type >
 void Imprimir( Type *, int );
+
 template < typename Type >
 void InsertionSort( Type *, int );
 

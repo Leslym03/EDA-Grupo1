@@ -1,47 +1,67 @@
-#include <algorithm> 
-#include <iostream> 
-#include <vector> 
-using namespace std; 
+#include<iostream>
+#include<algorithm>
+using namespace std;
 
 // PROTOTIPOS DE LAS FUNCIONES
 
-void Imprimir(vector<int>& arr);
-void countSort(vector<int>& arr);
+template < typename Type >
+void Imprimir( Type *, int );
+
+template < typename Type >
+Type getMax(Type array[], int size);
+
+template < typename Type >
+void countSort(Type *array, int size);
 
 // FUNCION PRINCIPAL
-  
-int main(){ 
-    vector<int> A = { -5, -10, 0, -3, 8, 5, -1, 10 }; 
-    countSort(A); 
-    Imprimir(A); 
-    return 0; 
-} 
+
+int main() {
+    int A[] = { 1, 3, 5, 2, 4 };
+    int tam1 = sizeof( A ) / sizeof( A[ 0 ]);
+
+    countSort(A, tam1);
+    Imprimir( A, tam1 );
+
+   return 0;
+}
 
 // DESARROLLO DE LAS FUNCIONES
 
-void countSort(vector<int>& arr) { 
-    int max = *max_element(arr.begin(), arr.end()); 
-    int min = *min_element(arr.begin(), arr.end()); 
-    int range = max - min + 1; 
-  
-    vector<int> count(range), output(arr.size()); 
-    for (int i = 0; i < arr.size(); i++) 
-        count[arr[i] - min]++; 
-  
-    for (int i = 1; i < count.size(); i++) 
-        count[i] += count[i - 1]; 
-  
-    for (int i = arr.size() - 1; i >= 0; i--) { 
-        output[count[arr[i] - min] - 1] = arr[i]; 
-        count[arr[i] - min]--; 
-    } 
-  
-    for (int i = 0; i < arr.size(); i++) 
-        arr[i] = output[i]; 
-} 
-  
-void Imprimir(vector<int>& arr) { 
-    for (int i = 0; i < arr.size(); i++) 
-        cout << arr[i] << " "; 
-    cout << "\n"; 
+template < typename Type >
+void Imprimir( Type *arr, int size ) {
+
+    for( int i = 0; i < size; ++i ) {
+        cout << *( arr + i ) << " ";
+    }
+    cout << endl;
+}
+
+template < typename Type >
+Type getMax(Type array[], int size) {
+   Type max = array[1];
+   for(int i = 2; i<=size; i++) {
+      if(array[i] > max)
+         max = array[i];
+   }
+   return max; 
+}
+
+template < typename Type >
+void countSort(Type *array, int size) {
+   Type output[size+1];
+   Type max = getMax(array, size);
+   Type count[max+1];     
+   for(int i = 0; i<=max; i++)
+      count[i] = 0;     
+   for(int i = 1; i <=size; i++)
+      count[array[i]]++;     
+   for(int i = 1; i<=max; i++)
+      count[i] += count[i-1];    
+   for(int i = size; i>=1; i--) {
+      output[count[array[i]]] = array[i];
+      count[array[i]] -= 1; 
+   }
+   for(int i = 1; i<=size; i++) {
+      array[i] = output[i]; 
+    }
 }

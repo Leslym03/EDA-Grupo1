@@ -4,12 +4,16 @@ using namespace std;
 // PROTOTIPOS DE LAS FUNCIONES
 
 int Lenght( char * );
+
 template < typename Type >
 void Imprimir( Type *, int );
+
 template < typename Type >
 void QuickSort( Type *, int );
+
 template < typename Type >
 void QuickSort( Type *, int, int );
+
 template < typename Type >
 void Swap( Type &, Type & );
 

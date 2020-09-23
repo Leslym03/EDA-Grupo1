@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// PROTOTIPOS DE LAS FUNCIONES
+
 template < typename Type>
 int Length (Type *);
 
@@ -16,14 +18,18 @@ void Heapify ( Type *, int , int );// array, indice de un nodo y tamanho del hea
 template < typename Type>
 void HeapSort ( Type *, int ); //array , tamanho
 
+// FUNCION PRINCIPAL
+
 int main () {
 	int array[] = {12, 11, 13, 5, 6, 7};
 	int n = sizeof(array)/sizeof(array[0]);
 
 	HeapSort<int>(array, n);
-	cout << "Sorted array is \n";
 	Imprimir<int>(array,n);
+	return 0;
 }
+
+// DESARROLLO DE LAS FUNCIONES
 
 template <typename Type>
 int Length ( Type * array){
