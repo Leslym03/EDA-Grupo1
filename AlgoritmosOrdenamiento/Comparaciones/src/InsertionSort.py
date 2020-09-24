@@ -19,8 +19,10 @@ for j in range(5):
     A = file.readlines()
     file.close()
 
+    B=[0]*tam[j]
+
     for i in range(tam[j]):
-        A[i]=int(A[i])
+        B[i]=int(A[i])
 
     t0=time()
     insertionSort(A) 
