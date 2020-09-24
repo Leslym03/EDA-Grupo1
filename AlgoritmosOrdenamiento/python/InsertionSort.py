@@ -10,4 +10,4 @@ def insertionSort(arr):
 arr = [12, 11, 13, 5, 6] 
 insertionSort(arr) 
 for i in range(len(arr)): 
-    print ("% d" % arr[i]) 
+    print (arr[i]) 

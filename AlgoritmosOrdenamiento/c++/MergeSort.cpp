@@ -82,7 +82,7 @@ void Merge( Type *arr, int left, int mid, int right ) {
 
 template < typename Type >
 void MergeSort( Type *arr, int size ) {
-    
+ 
     MergeSort( arr, 0, size - 1 );
 }
 
