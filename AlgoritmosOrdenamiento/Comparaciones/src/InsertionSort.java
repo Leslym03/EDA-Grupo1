@@ -50,7 +50,7 @@ class Read{
             while(linea!=null){
                 linea=buffer.readLine();
                 if(linea!=null){
-                    linea=linea.substring(0,linea.length()-1);
+                    linea=linea.substring(0,linea.length());
                     entero = Integer.parseInt(linea);
                     A[i]=entero;
                     i=i+1;
