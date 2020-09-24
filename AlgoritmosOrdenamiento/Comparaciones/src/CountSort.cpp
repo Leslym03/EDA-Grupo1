@@ -41,9 +41,9 @@ void countSort(Type *array, int size) {
 }
 
 int main(){
-	int tam [] = {100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000}; 
+	int tam [] = {100000, 300000, 500000, 700000, 1000000}; 
 
-    for(int j=0;j<10;j++){
+    for(int j=0;j<5;j++){
         int *A = new int[tam[j]];
 
         ifstream file;

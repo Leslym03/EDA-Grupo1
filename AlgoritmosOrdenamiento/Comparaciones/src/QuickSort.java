@@ -74,7 +74,7 @@ class Read{
                     A[i]=entero;
                     i=i+1;
                     if(i==n){
-                        Quick ob = new Quick(); 
+                        QuickSort ob = new QuickSort(); 
                         TInicio = System.currentTimeMillis();
                         ob.quickSort(A); 
                         TFin = System.currentTimeMillis();

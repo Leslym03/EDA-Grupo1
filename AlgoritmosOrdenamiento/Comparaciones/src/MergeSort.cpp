@@ -8,7 +8,7 @@ using namespace std;
 
 unsigned t0, t1;
 
-ofstream fs("Salidas/MergeSort/salida10cc.txt");
+ofstream fs("Salidas/MergeSort/salida1cc.txt");
 
 template < typename Type >
 void Merge( Type *arr, int left, int mid, int right ) {
@@ -62,7 +62,7 @@ int main(){
         ifstream file;
         string num;
         int num_int=0;
-        file.open("Entradas/aleatorio10.txt",ios::in);
+        file.open("Entradas/aleatorio1.txt",ios::in);
         int i=0;
         while(!file.eof() && i<=tam[j]){
             getline(file,num);
