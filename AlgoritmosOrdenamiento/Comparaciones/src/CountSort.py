@@ -16,7 +16,7 @@ def countingSort(array):
     for i in range(0, size):
         count[int(array[i])] += 1
 
-    for i in range(1, maxi):
+    for i in range(1, maxi+1):
         count[i] += count[i - 1]
 
     i = size - 1
@@ -38,8 +38,10 @@ for j in range(10):
     A = file.readlines()
     file.close()
 
+    B=[0]*tam[j]
+
     for i in range(tam[j]):
-        A[i]=int(A[i])
+        B[i]=int(A[i])
 
     t0=time()
     countingSort(A) 
