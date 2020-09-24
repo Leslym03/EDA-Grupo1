@@ -5,5 +5,3 @@ Se realizo comparaciones del tiempo de procesamiento de los algoritmos de ordena
 - **Graficos:** Contiene graficos como imagenes PNG de las comparaciones entre los algoritmos de ordenacion.
 
 - **src:** Contiene los codigos para extraer los tiempos de procesamiento de los algoritmos de ordenacion.
-
-
