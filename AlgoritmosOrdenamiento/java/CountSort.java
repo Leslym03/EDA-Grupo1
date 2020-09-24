@@ -1,42 +1,44 @@
-import java.util.*; 
-  
-class GFG { 
-  
-    static void countSort(int[] arr) { 
-        int max = Arrays.stream(arr).max().getAsInt(); 
-        int min = Arrays.stream(arr).min().getAsInt(); 
-        int range = max - min + 1; 
-        int count[] = new int[range]; 
-        int output[] = new int[arr.length]; 
-        for (int i = 0; i < arr.length; i++) { 
-            count[arr[i] - min]++; 
-        } 
-  
-        for (int i = 1; i < count.length; i++) { 
-            count[i] += count[i - 1]; 
-        } 
-  
-        for (int i = arr.length - 1; i >= 0; i--) { 
-            output[count[arr[i] - min] - 1] = arr[i]; 
-            count[arr[i] - min]--; 
-        } 
-  
-        for (int i = 0; i < arr.length; i++) { 
-            arr[i] = output[i]; 
-        } 
-    } 
-  
-    static void printArray(int[] arr) { 
-        for (int i = 0; i < arr.length; i++) { 
-            System.out.print(arr[i] + " "); 
-        } 
-        System.out.println(""); 
-    } 
+import java.util.Arrays;
 
-    public static void main(String[] args) { 
-        int[] arr = { -5, -10, 0, -3, 8, 5, -1, 10 }; 
-        countSort(arr); 
-        printArray(arr); 
-    } 
-} 
-  
+class CountingSort {
+  void countSort(int array[], int size) {
+    int[] output = new int[size + 1];
+
+    int max = array[0];
+    for (int i = 1; i < size; i++) {
+      if (array[i] > max)
+        max = array[i];
+    }
+    int[] count = new int[max + 1];
+
+    for (int i = 0; i < max; ++i) {
+      count[i] = 0;
+    }
+
+    for (int i = 0; i < size; i++) {
+      count[array[i]]++;
+    }
+
+    for (int i = 1; i <= max; i++) {
+      count[i] += count[i - 1];
+    }
+
+    for (int i = size - 1; i >= 0; i--) {
+      output[count[array[i]] - 1] = array[i];
+      count[array[i]]--;
+    }
+
+    for (int i = 0; i < size; i++) {
+      array[i] = output[i];
+    }
+  }
+
+  public static void main(String args[]) {
+    int[] data = { 4, 2, 2, 8, 3, 3, 1 };
+    int size = data.length;
+    CountingSort cs = new CountingSort();
+    cs.countSort(data, size);
+    System.out.println("Sorted Array in Ascending Order: ");
+    System.out.println(Arrays.toString(data));
+  }
+}

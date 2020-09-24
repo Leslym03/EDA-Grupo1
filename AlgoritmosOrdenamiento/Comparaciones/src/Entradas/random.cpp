@@ -7,7 +7,7 @@ int main(){
     int num;
     srand(time(NULL));
     for(int i=0; i<1000000; i++){
-        num = rand();
+        num = rand()%10000;
         cout << num << endl;
     }
     return 0;

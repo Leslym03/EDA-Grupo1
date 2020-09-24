@@ -1,34 +1,40 @@
 from io import open
 from time import time
 
-def count_sort(arr): 
-    max_element = int(max(arr)) 
-    min_element = int(min(arr)) 
-    range_of_elements = max_element - min_element + 1
+def countingSort(array):
+    size = len(array)
+    output = [0] * size
 
-    count_arr = [0 for _ in range(range_of_elements)] 
-    output_arr = [0 for _ in range(len(arr))] 
-  
-    for i in range(0, len(arr)): 
-        count_arr[arr[i]-min_element] += 1
-  
-    for i in range(1, len(count_arr)): 
-        count_arr[i] += count_arr[i-1] 
+    maxi = int(array[0])
 
-    for i in range(len(arr)-1, -1, -1): 
-        output_arr[count_arr[arr[i] - min_element] - 1] = arr[i] 
-        count_arr[arr[i] - min_element] -= 1
+    for i in range(1,size):
+        if int(array[i]) > int(maxi):
+            maxi = int(array[i]);
 
-    for i in range(0, len(arr)): 
-        arr[i] = output_arr[i] 
+    count = [0] * (maxi+1)
+
+    for i in range(0, size):
+        count[int(array[i])] += 1
+
+    for i in range(1, maxi):
+        count[i] += count[i - 1]
+
+    i = size - 1
+    while i >= 0:
+        output[count[int(array[i])] - 1] = array[i]
+        count[int(array[i])] -= 1
+        i -= 1
+
+    for i in range(0, size):
+        array[i] = output[i]
 
 
-tam = [100000, 300000, 500000, 700000, 1000000]
-times = [0,0,0,0,0]
-f=open("Salidas/CountSort/salida1py.txt","w")
+tam = [100000,200000,300000,400000, 500000,600000,700000,800000,900000, 1000000]
+times = [0,0,0,0,0,0,0,0,0,0]
+f=open("Salidas/CountSort/salida10py.txt","w")
 
-for j in range(5):            
-    file = open("Entradas/aleatorio1.txt","r")
+for j in range(10):            
+    file = open("Entradas/aleatorio10.txt","r")
     A = file.readlines()
     file.close()
 
@@ -36,7 +42,7 @@ for j in range(5):
         A[i]=int(A[i])
 
     t0=time()
-    count_sort(A) 
+    countingSort(A) 
     tiempo = time()-t0
     tiempo = round(tiempo,3)
 

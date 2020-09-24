@@ -2,40 +2,48 @@ import java.util.Scanner;
 import java.io.*;
 
 class CountSort {
-    void countSort(int[] arr) { 
-        int max = Arrays.stream(arr).max().getAsInt(); 
-        int min = Arrays.stream(arr).min().getAsInt(); 
-        int range = max - min + 1; 
-        int count[] = new int[range]; 
-        int output[] = new int[arr.length]; 
-        for (int i = 0; i < arr.length; i++) { 
-            count[arr[i] - min]++; 
-        } 
-  
-        for (int i = 1; i < count.length; i++) { 
-            count[i] += count[i - 1]; 
-        } 
-  
-        for (int i = arr.length - 1; i >= 0; i--) { 
-            output[count[arr[i] - min] - 1] = arr[i]; 
-            count[arr[i] - min]--; 
-        } 
-  
-        for (int i = 0; i < arr.length; i++) { 
-            arr[i] = output[i]; 
-        } 
-    } 
+    void countSort(int array[], int size) {
+        int[] output = new int[size + 1];
+    
+        int max = array[0];
+        for (int i = 1; i < size; i++) {
+          if (array[i] > max)
+            max = array[i];
+        }
+        int[] count = new int[max + 1];
+    
+        for (int i = 0; i < max; ++i) {
+          count[i] = 0;
+        }
+    
+        for (int i = 0; i < size; i++) {
+          count[array[i]]++;
+        }
+    
+        for (int i = 1; i <= max; i++) {
+          count[i] += count[i - 1];
+        }
+    
+        for (int i = size - 1; i >= 0; i--) {
+          output[count[array[i]] - 1] = array[i];
+          count[array[i]]--;
+        }
+    
+        for (int i = 0; i < size; i++) {
+          array[i] = output[i];
+        }
+      }
     
     public static void main(String args[]){   
         Read acc = new Read();
         Write out= new Write();
 
         double A;
-        int tams[] = {100000, 300000, 500000, 700000, 1000000}; 
+        int tams[] = {100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000};
         double times[];
-        times = new double[5];
+        times = new double[10];
         
-        for(int i=0;i<5;i++){
+        for(int i=0;i<10;i++){
             A = acc.reading(tams[i]);
             times[i] = A;
         }
@@ -48,7 +56,7 @@ class Read{
     public double reading(int n){
         double t_1=1.1;
         try{
-            ento = new FileReader("Entradas/aleatorio1.txt");
+            ento = new FileReader("Entradas/aleatorio10.txt");
             BufferedReader buffer = new BufferedReader(ento);
 
             String linea="";
@@ -68,7 +76,7 @@ class Read{
                     if(i==n){
                         CountSort ob = new CountSort(); 
                         TInicio = System.currentTimeMillis();
-                        ob.countSort(A); 
+                        ob.countSort(A, A.length); 
                         TFin = System.currentTimeMillis();
                         t_1 = (TFin - TInicio)/1000;
                         break;
@@ -92,10 +100,10 @@ class Read{
 class Write{
     public void writing(int tams [], double times[]){   
         try {
-            FileWriter escritura=new FileWriter("Salidas/CountSort/salida1jav.txt");
+            FileWriter escritura=new FileWriter("Salidas/CountSort/salida10jav.txt");
             String tipeo;
             String temp;
-            for(int i=0; i<5; i++){
+            for(int i=0; i<10; i++){
                 tipeo = times[i]+"";
                 temp = tams[i]+"";
                 escritura.write(tams[i]+" "+tipeo+"\n");

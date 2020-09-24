@@ -1,26 +1,25 @@
-def count_sort(arr): 
-    max_element = int(max(arr)) 
-    min_element = int(min(arr)) 
-    range_of_elements = max_element - min_element + 1
+def countingSort(array):
+    size = len(array)
+    output = [0] * size
 
-    count_arr = [0 for _ in range(range_of_elements)] 
-    output_arr = [0 for _ in range(len(arr))] 
-  
-    for i in range(0, len(arr)): 
-        count_arr[arr[i]-min_element] += 1
-  
-    for i in range(1, len(count_arr)): 
-        count_arr[i] += count_arr[i-1] 
+    count = [0] * 10
 
-    for i in range(len(arr)-1, -1, -1): 
-        output_arr[count_arr[arr[i] - min_element] - 1] = arr[i] 
-        count_arr[arr[i] - min_element] -= 1
+    for i in range(0, size):
+        count[array[i]] += 1
 
-    for i in range(0, len(arr)): 
-        arr[i] = output_arr[i] 
-  
+    for i in range(1, 10):
+        count[i] += count[i - 1]
 
-arr = [12, 11, 13, 5, 6] 
-count_sort(arr) 
-for i in range(len(arr)): 
-    print (arr[i]) 
+    i = size - 1
+    while i >= 0:
+        output[count[array[i]] - 1] = array[i]
+        count[array[i]] -= 1
+        i -= 1
+
+    for i in range(0, size):
+        array[i] = output[i]
+
+
+data = [4, 2, 2, 8, 3, 3, 1]
+countingSort(data)
+print(data)

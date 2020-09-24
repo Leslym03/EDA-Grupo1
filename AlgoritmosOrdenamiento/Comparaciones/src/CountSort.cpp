@@ -8,48 +8,50 @@ using namespace std;
 
 unsigned t0, t1;
 
-ofstream fs("Salidas/CountSort/salida1cc.txt");
+ofstream fs("Salidas/CountSort/salida10cc.txt");
 
-template < typename Type >
-Type getMax(Type array[], int size) {
-   Type max = array[1];
-   for(int i = 2; i<=size; i++) {
-      if(array[i] > max)
+void countSort(int *array, int size) {
+   int output[size+1];
+   int max = array[0];
+
+   for (int i = 1; i < size; i++) {
+      if (array[i] > max)
          max = array[i];
    }
-   return max; 
-}
+   int count[max+1];
 
-template < typename Type >
-void countSort(Type *array, int size) {
-   Type output[size+1];
-   Type max = getMax(array, size);
-   Type count[max+1];     
-   for(int i = 0; i<=max; i++)
-      count[i] = 0;     
-   for(int i = 1; i <=size; i++)
-      count[array[i]]++;     
-   for(int i = 1; i<=max; i++)
-      count[i] += count[i-1];    
-   for(int i = size; i>=1; i--) {
-      output[count[array[i]]] = array[i];
-      count[array[i]] -= 1; 
+   for (int i = 0; i <= max; ++i) {
+      count[i] = 0;
    }
-   for(int i = 1; i<=size; i++) {
-      array[i] = output[i]; 
-    }
+
+   for (int i = 0; i < size; i++) {
+      count[array[i]]++;
+   }
+
+   for (int i = 1; i <= max; i++) {
+      count[i] += count[i - 1];
+   }
+
+   for (int i = size - 1; i >= 0; i--) {
+      output[count[array[i]] - 1] = array[i];
+      count[array[i]]--;
+   }
+   
+   for (int i = 0; i < size; i++) {
+      array[i] = output[i];
+   }
 }
 
 int main(){
-	int tam [] = {100000, 300000, 500000, 700000, 1000000}; 
+	int tam [] = {100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000};
 
-    for(int j=0;j<5;j++){
+    for(int j=0;j<10;j++){
         int *A = new int[tam[j]];
 
         ifstream file;
         string num;
         int num_int=0;
-        file.open("Entradas/aleatorio1.txt",ios::in);
+        file.open("Entradas/aleatorio10.txt",ios::in);
         int i=0;
         while(!file.eof() && i<=tam[j]){
             getline(file,num);

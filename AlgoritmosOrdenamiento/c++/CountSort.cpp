@@ -6,12 +6,7 @@ using namespace std;
 
 template < typename Type >
 void Imprimir( Type *, int );
-
-template < typename Type >
-Type getMax(Type array[], int size);
-
-template < typename Type >
-void countSort(Type *array, int size);
+void countSort(int *array, int size);
 
 // FUNCION PRINCIPAL
 
@@ -36,32 +31,34 @@ void Imprimir( Type *arr, int size ) {
     cout << endl;
 }
 
-template < typename Type >
-Type getMax(Type array[], int size) {
-   Type max = array[1];
-   for(int i = 2; i<=size; i++) {
-      if(array[i] > max)
+void countSort(int *array, int size) {
+   int output[size+1];
+   int count[size+1];
+   int max = array[0];
+
+   for (int i = 1; i < size; i++) {
+      if (array[i] > max)
          max = array[i];
    }
-   return max; 
-}
 
-template < typename Type >
-void countSort(Type *array, int size) {
-   Type output[size+1];
-   Type max = getMax(array, size);
-   Type count[max+1];     
-   for(int i = 0; i<=max; i++)
-      count[i] = 0;     
-   for(int i = 1; i <=size; i++)
-      count[array[i]]++;     
-   for(int i = 1; i<=max; i++)
-      count[i] += count[i-1];    
-   for(int i = size; i>=1; i--) {
-      output[count[array[i]]] = array[i];
-      count[array[i]] -= 1; 
+   for (int i = 0; i <= max; ++i) {
+      count[i] = 0;
    }
-   for(int i = 1; i<=size; i++) {
-      array[i] = output[i]; 
-    }
+
+   for (int i = 0; i < size; i++) {
+      count[array[i]]++;
+   }
+
+   for (int i = 1; i <= max; i++) {
+      count[i] += count[i - 1];
+   }
+
+   for (int i = size - 1; i >= 0; i--) {
+      output[count[array[i]] - 1] = array[i];
+      count[array[i]]--;
+   }
+   
+   for (int i = 0; i < size; i++) {
+      array[i] = output[i];
+   }
 }
