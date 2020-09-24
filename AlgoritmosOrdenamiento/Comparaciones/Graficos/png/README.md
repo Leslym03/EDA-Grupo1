@@ -6,4 +6,4 @@
 
  ![CountSort](https://github.com/Leslym03/EDA/blob/master/AlgoritmosOrdenamiento/Comparaciones/Graficos/png/CountSort.png) 
  
- ![SelectionSort](https://github.com/Leslym03/EDA/blob/master/AlgoritmosOrdenamiento/Comparaciones/Graficos/png/SelectionSort.png) 
+ ![SelectionSort](https://github.com/Leslym03/EDA/blob/master/AlgoritmosOrdenamiento/Comparaciones/Graficos/png/SelectionSort.PNG) 
