@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.*;
 
 class HeapSort {
-    static void heapify(int[] array, int size, int indice){
+    void heapify(int[] array, int size, int indice){
 		int temp; // swap variable
 		int largest = indice;
 		int l = 2 * indice + 1;
@@ -19,7 +19,7 @@ class HeapSort {
 			heapify(array, size, largest);
 		}
 	}
-	static void heapSort(int[] array, int size){
+	void heapSort(int[] array, int size){
 		for(int i = size/2 - 1; i >= 0; --i)
 			heapify(array, size, i);
 		for(int i = size - 1 ; i > 0; --i){
@@ -55,7 +55,7 @@ class Read{
     public double reading(int n){
         double t_1=1.1;
         try{
-            ento = new FileReader("Entradas/aleatorio1.txt");
+            ento = new FileReader("Entradas/aleatorio10.txt");
             BufferedReader buffer = new BufferedReader(ento);
 
             String linea="";
@@ -99,7 +99,7 @@ class Read{
 class Write{
     public void writing(int tams [], double times[]){   
         try {
-            FileWriter escritura=new FileWriter("Salidas/HeapSort/salida1jav.txt");
+            FileWriter escritura=new FileWriter("Salidas/HeapSort/salida10jav.txt");
             String tipeo;
             String temp;
             for(int i=0; i<10; i++){
