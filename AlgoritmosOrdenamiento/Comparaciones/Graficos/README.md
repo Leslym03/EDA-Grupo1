@@ -6,4 +6,6 @@ Contiene las siguientes graficas donde se muestra la comparacion del tiempo de p
 - Todos los algoritmos implementados en los lenguajes C++, Java, Python. 
 
 
+ ![HeapSort](https://github.com/Leslym03/EDA/blob/master/AlgoritmosOrdenamiento/Comparaciones/Graficos/png/HeapSort.png) 
 
+ ![QuickSort](https://github.com/Leslym03/EDA/blob/master/AlgoritmosOrdenamiento/Comparaciones/Graficos/png/QuickSort.png) 
