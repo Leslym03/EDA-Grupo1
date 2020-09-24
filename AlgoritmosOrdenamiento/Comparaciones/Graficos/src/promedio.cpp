@@ -22,7 +22,7 @@ int main(){
     buff =0;
     for(int i=0; i<size; i++){
         buff= buff +100000 ;
-        cout << buff << " " << arr[i]/10 << endl;
+        cout << buff << " " << arr[i]/size << endl;
     }
     return 0;
 }
