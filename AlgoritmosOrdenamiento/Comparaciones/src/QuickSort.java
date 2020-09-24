@@ -56,7 +56,7 @@ class Read{
     public double reading(int n){
         double t_1=1.1;
         try{
-            ento = new FileReader("Entradas/aleatorio1.txt");
+            ento = new FileReader("Entradas/aleatorio4.txt");
             BufferedReader buffer = new BufferedReader(ento);
 
             String linea="";
@@ -100,7 +100,7 @@ class Read{
 class Write{
     public void writing(int tams [], double times[]){   
         try {
-            FileWriter escritura=new FileWriter("Salidas/QuickSort/salida1jav.txt");
+            FileWriter escritura=new FileWriter("Salidas/QuickSort/salida4jav.txt");
             String tipeo;
             String temp;
             for(int i=0; i<10; i++){
