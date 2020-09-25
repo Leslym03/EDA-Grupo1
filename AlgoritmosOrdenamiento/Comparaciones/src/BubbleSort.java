@@ -21,7 +21,7 @@ class BubbleSort {
         Write out= new Write();
 
         double A;
-        int tams[] = {100000, 300000, 500000, 700000, 1000000}; 
+        int tams[] = {10000, 30000, 50000, 70000, 100000}; 
         double times[];
         times = new double[5];
         
@@ -38,7 +38,7 @@ class Read{
     public double reading(int n){
         double t_1=1.1;
         try{
-            ento = new FileReader("Entradas/aleatorio1.txt");
+            ento = new FileReader("Entradas/aleatorio10.txt");
             BufferedReader buffer = new BufferedReader(ento);
 
             String linea="";
@@ -82,7 +82,7 @@ class Read{
 class Write{
     public void writing(int tams [], double times[]){   
         try {
-            FileWriter escritura=new FileWriter("Salidas/BubbleSort/salida1jav.txt");
+            FileWriter escritura=new FileWriter("Salidas/BubbleSort/salida10jav.txt");
             String tipeo;
             String temp;
             for(int i=0; i<5; i++){
