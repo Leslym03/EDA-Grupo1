@@ -8,4 +8,6 @@
  
  ![SelectionSort](https://github.com/Leslym03/EDA/blob/master/AlgoritmosOrdenamiento/Comparaciones/Graficos/png/SeleccionSort.png) 
 
-  ![MergeSort](https://github.com/Leslym03/EDA/blob/master/AlgoritmosOrdenamiento/Comparaciones/Graficos/png/MergeSort.png) 
+ ![MergeSort](https://github.com/Leslym03/EDA/blob/master/AlgoritmosOrdenamiento/Comparaciones/Graficos/png/MergeSort.png) 
+
+ ![BubbleSort](https://github.com/Leslym03/EDA/blob/master/AlgoritmosOrdenamiento/Comparaciones/Graficos/png/BubbleSort.png) 
