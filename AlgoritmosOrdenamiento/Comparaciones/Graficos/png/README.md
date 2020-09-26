@@ -11,3 +11,5 @@
  ![MergeSort](https://github.com/Leslym03/EDA/blob/master/AlgoritmosOrdenamiento/Comparaciones/Graficos/png/MergeSort.png) 
 
  ![BubbleSort](https://github.com/Leslym03/EDA/blob/master/AlgoritmosOrdenamiento/Comparaciones/Graficos/png/BubbleSort.png) 
+
+  ![InserionSort](https://github.com/Leslym03/EDA/blob/master/AlgoritmosOrdenamiento/Comparaciones/Graficos/png/InserionSort.png) 
