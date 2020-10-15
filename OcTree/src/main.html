@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="shader.js" defer></script>
+		<script src="mesh.js" defer></script>
+		<script src="octree.js" defer></script>
+		<script src="engine.js" defer></script>
+		<script src="main.js" defer></script>
+	</head>
+	<body>
+		<span class="border">
+		<div class="mx-auto" style="width: 1200px;">
+		<h3 class="text-center">Estructura multidimencional OcTree</h3>
+		<br>
+		<div class="row">
+			<div class="col-sm-6">
+				<canvas width = "570" height = "570" id = 'my_Canvas' tabindex='1'></canvas>
+			</div>
+			<div class="col-sm-5">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Funcionalidades</h5>
+
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								<a class="btn btn-primary " type="submit" id="addRandomPoint" onclick="engine.addRandomPoint()">Insertar punto aleatorio</a>
+							</li>
+							<li class="list-group-item">
+								<p class="card-text">x: <input type="text" id="coordX"></p>
+								<p class="card-text">y: <input type="text" id="coordY"></p>
+								<p class="card-text">z: <input type="text" id="coordZ"></p>
+								<button class="btn btn-primary" type="submit" id="addPoint" onclick="engine.addPoint()">Insertar punto por coordenadas</button>
+							</li>
+							<li class="list-group-item">
+								<p class="card-text">Transparencia de la estructura</p>
+								<button class="btn btn-primary" type="submit" id="changeOctreeTransparency" onclick="engine.changeOctreeTransparency()">Cambiar</button>
+							</li>
+							<li class="list-group-item">
+								<p class="card-text">Realizar Query de puntos</p>
+								<button class="btn btn-primary" type="submit" id="changeOctreeTransparency" onclick="engine.QueryDinamic()">Query dinámico</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</span>
+
+	</body>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js></script>
+</html>
+
+<!doctype html>
