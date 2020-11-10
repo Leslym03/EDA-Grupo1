@@ -71,7 +71,7 @@ function naive_closest_point(node , point , depth = 0, best = null ) {
     }
 }
 
-function closest_point(node, point, depth = 0, best = null) {
+function closest_point(node, point, depth = 0) {
     if(node == null) {
         return null;
     }
@@ -84,15 +84,15 @@ function closest_point(node, point, depth = 0, best = null) {
         var otherBranch = node.left;
     }
 
-    let temp = closest_point(nextBranch, point, depth + 1, best);
-    best = closest(temp, node, point);
-
-    let distanceBest = distanceSquared(point, best);
-    let distanceAxis = point[node.axis] - node.point.vectorialSpace[node.axis];
+    var temp = closest_point(nextBranch, point, depth + 1);
+    var best = closest(temp, node, point);
     
-    if(distanceBest >= distanceAxis * distanceAxis) {
-        temp = closest_point(otherBranch, point, depth + 1, best);
-        best = naive_closest_point(temp, point, depth + 1, best);
+    var distanceBest = distanceSquared(point, best.point.vectorialSpace);
+    var distanceAxis = Math.abs(point[node.axis] - node.point.vectorialSpace[node.axis]);
+
+    if(distanceAxis <= distanceBest) {
+        temp = closest_point(otherBranch, point, depth + 1);
+        best = closest(temp, best, point);
     }
     
     return best;
@@ -132,9 +132,8 @@ function KNN(data, n, point) {
         neight.push(closePoint.point.vectorialSpace);
         deleteNode(arr, closePoint);
         root = buildKDTree(arr);
-        console.log(root);
     }
-    console.log(neight);
+    return neight;
 }
 
 function deleteNode(arr, node) {
