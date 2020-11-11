@@ -71,6 +71,52 @@ function naive_closest_point(node , point , depth = 0, best = null ) {
     }
 }
 
+//////////////////////Practica-07   //////////////////////////////////////////
+
+
+function range_query_circle(data , center , radio , queue , depth = 0) {
+    let neight = [];
+    let root = buildKDTree(data);
+
+    for(let i = 0; i < data.length; ++i) {
+        let arr = [];
+        convertKDTreeToArray(root, arr);
+        let closePoint = closest_point(root, center,depth);
+        if(distanceSquared( center,closePoint.point.vectorialSpace) < radio){
+            neight.push(closePoint.point.vectorialSpace);
+        }
+        deleteNode(arr, closePoint);
+        root = buildKDTree(arr);
+    }
+    return neight;
+}
+
+function range_query_rec(data , center , diameter , queue , depth = 0) {
+    let neight = [];
+    let root = buildKDTree(data);
+
+    for(let i = 0; i < data.length; ++i) {
+        let arr = [];
+        convertKDTreeToArray(root, arr);
+        let closePoint = closest_point(root, center,depth);
+        
+        let dimX = [closePoint.point.vectorialSpace[0],0];
+        let centerX =[center[0],0];
+
+        let dimY = [0,closePoint.point.vectorialSpace[1]];
+        let centerY =[0,center[1]];
+
+        if(distanceSquared(centerX,dimX) < diameter && distanceSquared(centerY,dimY) < diameter){
+            neight.push(closePoint.point.vectorialSpace);
+        }
+        deleteNode(arr, closePoint);
+        root = buildKDTree(arr);
+    }
+    return neight;
+}
+//////////////////////////////////////////////////////////
+
+
 function closest_point(node, point, depth = 0) {
     if(node == null) {
         return null;
